@@ -2,8 +2,6 @@
 
 #include <arpa/inet.h>
 #include <stdio.h>
-#include <string.h>
-#include <sys/socket.h>
 
 #define PORT 10001
 #define BUFFER_LENGTH 512
@@ -36,6 +34,6 @@ main (int argv, char ** argc) {
         if (n > 0) {
             buffer[n] = '\0';
         }
-        printf("%s", buffer);
+        printf("%s\n", buffer);
     }
 }

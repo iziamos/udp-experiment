@@ -3,7 +3,6 @@
 #include <arpa/inet.h>
 #include <stdio.h>
 #include <string.h>
-#include <sys/socket.h>
 
 #define PORT 10001
 #define BUFFER_LENGTH 64
@@ -27,9 +26,13 @@ main (int argv, char ** argc) {
     // address.sin_addr.s_addr = inet_addr("239.193.4.0");
     address.sin_addr.s_addr = inet_addr("127.0.0.1");
 
-    strcpy(buffer, "blah");
+    strcpy(buffer, "Seq number: ");
 
-    for(;;) {
-        sendto(fd, buffer, 5, 0, (struct sockaddr *)&address, sizeof(address));
+    // len12
+
+    for(unsigned long i = 0; ; ++i) {
+        sprintf(buffer + 12, "%ul", i);
+
+        sendto(fd, buffer, 57, 0, (struct sockaddr *)&address, sizeof(address));
     }
 }
