@@ -25,7 +25,7 @@ main (int argv, char ** argc) {
 
     struct timespec pause;
     pause.tv_sec = 0;
-    pause.tv_nsec = 1000 * 1000 * 1000;
+    pause.tv_nsec = 999 * 1000 * 1000;
 
     if ((fd = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) < 0) {
         printf("Failed to create socket\n");
